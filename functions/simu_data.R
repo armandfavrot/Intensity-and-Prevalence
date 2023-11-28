@@ -34,8 +34,9 @@ simu_data <- function(seed, I){
                         u = recode(st, !!!u),
                         epsi = recode(sbit, !!!epsi))
  
- data$lb = exp(data$alpha0 + data$beta0 + data$gamma0 + (data$alpha1 + 
-                                                          data$gamma1) * data$tscaled + data$u + data$epsi)
+ data$lb = exp(data$alpha0 + data$beta0 + data$gamma0 + 
+               (data$alpha1 + data$gamma1) * data$tscaled + 
+               data$u + data$epsi)
  
  data$W = sapply(c(1 : (I * J * K * T * N)), 
                  function(x) rpois(1, data$lb[x]))
